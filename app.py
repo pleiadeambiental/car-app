@@ -160,6 +160,13 @@ Conservar remanescentes prioritários; Integrar RL e APP; Monitorar e prevenir i
 **Reserva Legal**  
 Dentro de APSE não é permitido reduzir a RL para 50 %; deve manter os percentuais integrais (80/35/20 %), mesmo em zonas que admitam redução fora da APSE.
         """)
+
+        # Fonte da APSE (ZEE/2025)
+        st.caption(
+            "Dados oficiais do Zoneamento Ecológico‑Econômico do Tocantins – versão 2025. "
+            "Projeto de Lei encaminhado à ALETO em 02 abr 2025."
+        )
+
     else:
         st.info(
             "O imóvel objeto de análise não intersecta nenhuma Área Prioritária para "
