@@ -1,0 +1,1 @@
+https://geoportal.to.gov.br/geoserver/zoneamento_ecologico_economico/wfs?service=WFS&request=GetFeature&version=1.0.0&outputFormat=shape-zip&typeName=servicos_ecossistemicos_4674&format_options=CHARSET:UTF-8
