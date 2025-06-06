@@ -38,7 +38,6 @@ def analisar_intersecao(numero_car: str, path_car: str, path_zee: str, path_apse
 
     nome_imovel = imovel.iloc[0]['nom_imovel']
 
-    # Garantir CRS projetado
     if not gdf_zee.crs.is_projected:
         gdf_zee = gdf_zee.to_crs(epsg=5880)
     imovel = imovel.to_crs(gdf_zee.crs)
@@ -128,7 +127,7 @@ if st.button("Consultar"):
         "Projeto de Lei encaminhado à ALETO em 02 abr 2025."
     )
 
-    # Texto descritivo por zona
+    # Descrição por zona
     st.markdown("### O que significa para você?")
     for zona in resultado["zonas_presentes"]:
         info = resultado["descricoes_zonas"].get(zona, {})
@@ -145,6 +144,22 @@ if st.button("Consultar"):
         df_apse["%"] = df_apse["%"].map(lambda x: f"{x:.2f}".replace('.', ','))
         df_apse = df_apse.rename(columns={"servico": "Serviço"})[["Serviço", "%"]]
         st.dataframe(df_apse, use_container_width=True)
+
+        # Bloco explicativo APSE (somente se houver interseção)
+        st.markdown("### O que significa para você?")
+        st.markdown("""
+**Composição**  
+Reservas Legais declaradas no CAR, remanescentes florestais nativos relevantes, fundos de vale, entorno de reservatórios, veredas, matas de galeria, áreas íngremes (> 45 %), mananciais de abastecimento e zonas estratégicas de restauração.
+
+**Objetivo**  
+Priorizar a conservação de água e biodiversidade, mantendo a provisão de serviços ecossistêmicos e possibilitando ganhos ambientais e socioeconômicos.
+
+**Diretrizes principais**  
+Conservar remanescentes prioritários; Integrar RL e APP; Monitorar e prevenir incêndios e desmatamento; Incentivar PSA e projetos REDD+; Desenvolver pesquisa e educação sobre serviços ecossistêmicos; e Estimular criação de RPPN e compensação de RL.
+
+**Reserva Legal**  
+Dentro de APSE não é permitido reduzir a RL para 50 %; deve manter os percentuais integrais (80/35/20 %), mesmo em zonas que admitam redução fora da APSE.
+        """)
     else:
         st.info(
             "O imóvel objeto de análise não intersecta nenhuma Área Prioritária para "
