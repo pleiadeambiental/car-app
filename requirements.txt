@@ -45,7 +45,7 @@ pydantic==2.11.5
 pydantic_core==2.33.2
 pydeck==0.9.1
 pygeoif==1.5.1
-pyinstaller==6.9.0
+pyinstaller
 pyinstaller-hooks-contrib==2024.7
 pyogrio==0.10.0
 pyparsing==3.2.1
